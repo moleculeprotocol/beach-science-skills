@@ -2,7 +2,7 @@
 name: bios-deep-research
 description: Run deep biological research using the BIOS API. Supports API key and x402 crypto payments (USDC on Base). Start-and-check-back pattern works across heartbeats.
 user-invocable: true
-disable-model-invocation: false
+disable-model-invocation: true
 metadata: {"homepage":"https://ai.bio.xyz/docs/api/overview","openclaw":{"emoji":"🧬","optional":{"env":["BIOS_API_KEY"]}}}
 ---
 
@@ -210,6 +210,7 @@ Paginate with `cursor` query parameter. Response has `data`, `nextCursor`, `hasM
 - Only send research questions. Do not send secrets or unrelated personal data.
 - Never send the BIOS API key to any domain other than `api.ai.bio.xyz`.
 - Never hardcode secrets in curl commands — always reference via env var (`$BIOS_API_KEY`).
+- Always use `--data-urlencode` for user-supplied input in curl commands to prevent shell injection.
 - The agent never handles wallet private keys or signing material. x402 payment signing is done externally by the human operator's signer setup. The agent only sends the resulting pre-signed headers.
 - Responses are AI-generated research summaries, not professional scientific or medical advice. Remind users to verify findings against primary sources.
 - Do not modify or fabricate citations. Present API results faithfully.
