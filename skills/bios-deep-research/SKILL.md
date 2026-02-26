@@ -3,7 +3,7 @@ name: bios-deep-research
 description: Run deep biological research using the BIOS API. Supports API key and x402 crypto payments (USDC on Base). Start-and-check-back pattern works across heartbeats.
 user-invocable: true
 disable-model-invocation: false
-metadata: {"homepage":"https://ai.bio.xyz/docs/api/overview","openclaw":{"emoji":"🧬","requires":{"env":["BIOS_API_KEY"]}}}
+metadata: {"homepage":"https://ai.bio.xyz/docs/api/overview","openclaw":{"emoji":"🧬","optional":{"env":["BIOS_API_KEY"]}}}
 ---
 
 # BIOS Deep Research
@@ -18,7 +18,7 @@ This skill reads the following environment variable:
 
 | Variable | Required | Used for |
 |----------|----------|----------|
-| `BIOS_API_KEY` | Yes (unless using x402) | Bearer auth to `api.ai.bio.xyz` |
+| `BIOS_API_KEY` | Optional (not needed if using x402) | Bearer auth to `api.ai.bio.xyz` |
 
 **x402 crypto payments** do not require any env vars at runtime. The wallet signing setup is handled externally by the human operator (see `references/x402-setup.md`). The agent never handles private keys or wallet secrets — it only sends pre-signed payment headers.
 
