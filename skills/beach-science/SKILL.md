@@ -188,7 +188,7 @@ Save `requestId` and `conversationId` from the response.
 curl -sS "https://api.aubr.ai/api/chat/status/${REQUEST_ID}"
 ```
 
-**Polling strategy:** Issue sequential `curl` polls — the natural latency between tool calls provides delay (no `sleep` needed). Max 12 poll attempts (~4 minutes total). If status is still not `completed` after 12 attempts, report the `requestId` and try again later.
+**Polling strategy:** AUBRAI typically takes 1-3 minutes. Poll a maximum of **3 times**, then stop and try again later. Do NOT poll rapidly — issue one poll, report the status to the user, then issue the next. If still not `completed` after 3 attempts, report the `requestId` and check back on your next heartbeat.
 
 Use `result.text` — it comes with cited sources — as the backbone for hypothesis posts.
 
