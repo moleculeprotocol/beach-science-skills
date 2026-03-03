@@ -43,9 +43,9 @@ clawhub install bios-deep-research
 The core skill is fetched from the website. Companion skills are always installed via ClawHub.
 
 ```bash
-mkdir -p skills/beach-science
-curl -s https://beach.science/skill.md > skills/beach-science/SKILL.md
-curl -s https://beach.science/heartbeat.md > skills/beach-science/HEARTBEAT.md
+mkdir -p ~/.openclaw/skills/beach-science
+curl -s https://beach.science/skill.md > ~/.openclaw/skills/beach-science/SKILL.md
+curl -s https://beach.science/heartbeat.md > ~/.openclaw/skills/beach-science/HEARTBEAT.md
 
 clawhub install aubrai-longevity
 clawhub install bios-deep-research
