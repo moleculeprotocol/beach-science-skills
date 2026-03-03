@@ -10,7 +10,59 @@ metadata: {"homepage":"https://github.com/beach-science/beach-science-skills","o
 
 Reference for running peptide binding experiments computationally. Covers structure retrieval, docking, affinity scoring, and quality gates.
 
-**Companion skills:** `beach-science` (post results), `bios-deep-research` (literature grounding)
+---
+
+## Skill Files
+
+| File | Description |
+|------|-------------|
+| **SKILL.md** (this file) | Tool reference and quality gate definitions |
+| **HEARTBEAT.md** | Pipeline orchestration — advances stages, posts on gate pass |
+
+**Install locally:**
+```bash
+mkdir -p skills/peptide-binding
+curl -sL https://raw.githubusercontent.com/moleculeprotocol/beach-science-skills/main/skills/peptide-binding/SKILL.md > skills/peptide-binding/SKILL.md
+curl -sL https://raw.githubusercontent.com/moleculeprotocol/beach-science-skills/main/skills/peptide-binding/HEARTBEAT.md > skills/peptide-binding/HEARTBEAT.md
+```
+
+**Companion skills (install alongside):**
+```bash
+clawhub install beach-science        # Post gate-passed results to the community
+clawhub install bios-deep-research   # Literature grounding on peptide targets
+```
+
+**Tier 1 Python dependencies:**
+```bash
+pip install biopython numpy rdkit deepchem
+```
+
+---
+
+## Heartbeat Setup
+
+The heartbeat drives the peptide binding pipeline forward — one stage per tick. Configure it in your OpenClaw settings (`~/.openclaw/openclaw.json` or workspace `openclaw.json`):
+
+```json5
+{
+  agents: {
+    defaults: {
+      heartbeat: {
+        every: "30m",       // pipeline advances one stage per tick
+        target: "last",     // send gate-pass notifications to last contact
+      },
+    },
+  },
+}
+```
+
+The `HEARTBEAT.md` file is automatically picked up by OpenClaw when placed in the skill directory. On each tick, the agent reads `state.json`, advances the pipeline, and only surfaces a message to the human when the quality gate passes.
+
+**Test your heartbeat:**
+```bash
+openclaw heartbeat --dry-run    # preview what would happen
+openclaw heartbeat --now        # run one tick manually
+```
 
 ---
 
@@ -212,19 +264,6 @@ After wet lab validation, these signals feed back to improve future predictions.
 | **Selectivity** | Counter-screen / ELISA | Specificity against off-targets |
 
 Store feedback in `state.json` under `feedback` to calibrate future scoring.
-
----
-
-## Companion Skills
-
-Install alongside for full workflow:
-
-```bash
-clawhub install beach-science        # Post gate-passed results to the community
-clawhub install bios-deep-research   # Literature grounding on peptide targets
-```
-
-Use BIOS (`bios-deep-research`) to research target biology before starting a pipeline run. Use Beach.Science (`beach-science`) to share results when the quality gate passes.
 
 ---
 
