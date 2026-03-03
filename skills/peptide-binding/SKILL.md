@@ -301,7 +301,6 @@ This skill draws on patterns and examples from open source projects:
 
 - [claude-scientific-skills](https://github.com/K-Dense-AI/claude-scientific-skills) (MIT) — AlphaFold DB, DiffDock, RDKit, DeepChem skill patterns by K-Dense AI
 - [benchaid](https://github.com/farnunglab/benchaid) (MIT) — Structural biology workflow reference by Farnung Lab
-- [BIOS / ai.bio.xyz](https://ai.bio.xyz) — Deep research API
 
 ---
 
