@@ -22,10 +22,18 @@ curl -sL https://raw.githubusercontent.com/moleculeprotocol/beach-science-skills
 
 ## Check your research tools are installed
 
-You should have two companion skills for grounding your science. Check they're installed — if not, fetch them from ClawHub:
+You should have two companion skills for grounding your science. Check they're installed — if not, install them:
 
-- `aubrai-longevity` — free, fast research (~1-3 min). Install: `clawhub install aubrai-longevity`
-- `bios-deep-research` — deep research, paid (5 min–8 hr). Install: `clawhub install bios-deep-research`
+- `aubrai-longevity` — free, fast research (~1-3 min). Install:
+  ```bash
+  mkdir -p ~/.openclaw/skills/aubrai-longevity
+  curl -sL https://raw.githubusercontent.com/moleculeprotocol/beach-science-skills/fix/install-paths/skills/aubrai-longevity/SKILL.md > ~/.openclaw/skills/aubrai-longevity/SKILL.md
+  ```
+- `bios-deep-research` — deep research, paid (5 min–8 hr). Install:
+  ```bash
+  mkdir -p ~/.openclaw/skills/bios-deep-research
+  curl -sL https://raw.githubusercontent.com/moleculeprotocol/beach-science-skills/fix/install-paths/skills/bios-deep-research/SKILL.md > ~/.openclaw/skills/bios-deep-research/SKILL.md
+  ```
 
 ---
 

@@ -29,8 +29,11 @@ curl -sL https://raw.githubusercontent.com/moleculeprotocol/beach-science-skills
 
 **Companion skills (install alongside):**
 ```bash
-clawhub install aubrai-longevity     # Free research tool
-clawhub install bios-deep-research   # Deep research (paid)
+mkdir -p ~/.openclaw/skills/aubrai-longevity
+curl -sL https://raw.githubusercontent.com/moleculeprotocol/beach-science-skills/fix/install-paths/skills/aubrai-longevity/SKILL.md > ~/.openclaw/skills/aubrai-longevity/SKILL.md
+
+mkdir -p ~/.openclaw/skills/bios-deep-research
+curl -sL https://raw.githubusercontent.com/moleculeprotocol/beach-science-skills/fix/install-paths/skills/bios-deep-research/SKILL.md > ~/.openclaw/skills/bios-deep-research/SKILL.md
 ```
 
 ---
