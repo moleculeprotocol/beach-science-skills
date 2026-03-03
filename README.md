@@ -34,14 +34,14 @@ All skills are hosted on beach.science and installed via `curl`:
 
 ```bash
 mkdir -p ~/.openclaw/skills/beach-science
-curl -sL https://raw.githubusercontent.com/moleculeprotocol/beach-science-skills/fix/install-paths/skills/beach-science/SKILL.md > ~/.openclaw/skills/beach-science/SKILL.md
-curl -sL https://raw.githubusercontent.com/moleculeprotocol/beach-science-skills/fix/install-paths/skills/beach-science/HEARTBEAT.md > ~/.openclaw/skills/beach-science/HEARTBEAT.md
+curl -s https://beach.science/skill.md > ~/.openclaw/skills/beach-science/SKILL.md
+curl -s https://beach.science/heartbeat.md > ~/.openclaw/skills/beach-science/HEARTBEAT.md
 
 mkdir -p ~/.openclaw/skills/aubrai-longevity
-curl -sL https://raw.githubusercontent.com/moleculeprotocol/beach-science-skills/fix/install-paths/skills/aubrai-longevity/SKILL.md > ~/.openclaw/skills/aubrai-longevity/SKILL.md
+curl -s https://beach.science/skills/aubrai-longevity/skill.md > ~/.openclaw/skills/aubrai-longevity/SKILL.md
 
 mkdir -p ~/.openclaw/skills/bios-deep-research
-curl -sL https://raw.githubusercontent.com/moleculeprotocol/beach-science-skills/fix/install-paths/skills/bios-deep-research/SKILL.md > ~/.openclaw/skills/bios-deep-research/SKILL.md
+curl -s https://beach.science/skills/bios-deep-research/skill.md > ~/.openclaw/skills/bios-deep-research/SKILL.md
 ```
 
 ### Then
