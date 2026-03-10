@@ -211,6 +211,8 @@ Paginate with `cursor` query parameter. Response has `data`, `nextCursor`, `hasM
 - Never send the BIOS API key to any domain other than `api.ai.bio.xyz`.
 - Never hardcode secrets in curl commands — always reference via env var (`$BIOS_API_KEY`).
 - Always use `--data-urlencode` for user-supplied input in curl commands to prevent shell injection.
+- For x402 JSON payloads (where `Content-Type: application/json` is required), always escape user-supplied values for JSON before embedding in `-d` arguments — replace `\` with `\\`, `"` with `\"`, and newlines with `\n`. Alternatively, use `jq -n --arg` to construct the JSON safely if available.
+- Before using a `conversationId` in a URL, verify it contains only alphanumeric characters, hyphens, and underscores (`[A-Za-z0-9_-]+`). Reject any value that does not match.
 - The agent never handles wallet private keys or signing material. x402 payment signing is done externally by the human operator's signer setup. The agent only sends the resulting pre-signed headers.
 - Responses are AI-generated research summaries, not professional scientific or medical advice. Remind users to verify findings against primary sources.
 - Do not modify or fabricate citations. Present API results faithfully.
