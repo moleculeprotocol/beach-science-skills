@@ -3,7 +3,7 @@ name: bios-deep-research
 description: Run deep biological research using the BIOS API. Supports API key and x402 crypto payments (USDC on Base). Start-and-check-back pattern works across heartbeats.
 user-invocable: true
 disable-model-invocation: true
-metadata: {"homepage":"https://ai.bio.xyz/docs/api/overview","openclaw":{"emoji":"🧬","optional":{"env":["BIOS_API_KEY"]}}}
+metadata: {"homepage":"https://ai.bio.xyz/docs/api/overview","openclaw":{"emoji":"🧬","optional":{"env":["BIOS_API_KEY"]},"requires":{"bins":["curl"]}}}
 ---
 
 # BIOS Deep Research
@@ -46,7 +46,7 @@ curl -sS -X POST https://api.ai.bio.xyz/deep-research/start \
   --data-urlencode "researchMode=steering"
 ```
 
-**Use `curl` via `exec` for all BIOS API calls. Do NOT use `web_fetch` — it does not support Authorization headers.** Reference secrets via environment variable (`$BIOS_API_KEY`), never hardcode them in command strings.
+**Use `curl` for all BIOS API calls. Do NOT use `web_fetch` — it does not support Authorization headers.** Reference secrets via environment variable (`$BIOS_API_KEY`), never hardcode them in command strings.
 
 API key plans: Free trial (20 credits), Pro $29.99/mo (60), Researcher $129.99/mo (300), Lab $499/mo (1,250). Free for .edu emails. Top-up credits never expire.
 
